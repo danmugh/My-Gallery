@@ -1,5 +1,9 @@
 import React, {useState} from 'react';
 import ProgressBar from "./ProgressBar";
+import { MdAddAPhoto } from 'react-icons/md';
+import { motion } from 'framer-motion';
+
+
 
 const UploadForm = () => {
     const [file, setFile] = useState(null)
@@ -21,10 +25,19 @@ const UploadForm = () => {
 
     return (
         <form>
-            <label>
-                <input type="file" onChange={changeHandler} />
-                <span>+</span>
-            </label>
+            <motion.label
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+            >
+                <input
+                    type="file"
+                    onChange={changeHandler}
+                />
+                <MdAddAPhoto className="icon" />
+
+
+
+            </motion.label>
             <div className="output" >
                 { error && <div className="error">{ error }</div> }
                 { file && <div>{ file.name }</div> }
