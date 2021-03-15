@@ -5,11 +5,9 @@ const useStorage = (file) => {
     const [progress, setProgress] = useState(0);
     const [error, setError] = useState(null);
     const [url, setUrl] = useState(null);
-    const [name, setName] = useState(null)
 
     useEffect(() => {
         // references
-        setName(file.name)
 
         const storageRef = projectStorage.ref(file.name);
         const collectionRef = projectFirestore.collection('images');
@@ -23,13 +21,13 @@ const useStorage = (file) => {
             const url = await storageRef.getDownloadURL();
             const createdAt = timestamp();
 
-            collectionRef.add({ url, createdAt })
+            collectionRef.add({ url, createdAt, name: file.name })
             setUrl(url);
-            console.log('collectionRef', collectionRef)
+
         });
     }, [file]);
 
-    return { progress, url, error, name };
+    return { progress, url, error };
 }
 
 export default useStorage;

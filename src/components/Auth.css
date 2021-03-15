@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@100&display=swap');
+
+/* Reset styles */
+html,body, body * {
+    box-sizing: border-box;
+    margin:0;
+    padding:0;
+    color:inherit;
+    background-color:inherit;
+}
+
+body {
+    background-image: url('../assets/img_1.jpg');
+    background-size:  cover;
+    background-position:center center;
+    font-family: 'Montserrat Alternates', sans-serif;
+
+}
+
+.container {
+    width: 100%;
+    padding-top: 60px;
+    padding-bottom: 100px;
+
+}
+
+.login-register-wrapper {
+    height: 560px;
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    padding:0 2em;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0px 2px 7px rgba(0,0,0,0.2);
+    overflow: hidden;
+    color:#ffffff;
+
+    background: linear-gradient(180deg, rgba(19,38,79,1) 0%, rgba(22,147,198,1) 52%, rgba(255,255,255,0) 82%);
+}
+
+@media (max-width: 580px) {
+    .login-register-wrapper {
+        height: 560px;
+        width: 75%;
+    }
+}
+
+/* Nav buttons */
+.nav-buttons {
+    width: 100%;
+    height: 100px;
+    padding-top: 40px;
+    opacity: 1;
+    margin-bottom: 3em;
+}
+button {
+    font-size: 1.5em;
+    margin-right:1em;
+    border:0px;
+    cursor: pointer;
+
+}
+button:focus {
+    outline: 0px;
+}
+button.active {
+    padding-bottom: 10px;
+    border-bottom: solid 2px #1059FF;
+}
+
+/* footer: forgot section */
+.forgot-panel {
+    position: relative;
+    height: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    padding-top: 24px;
+    border-top: solid 1px rgba(255,255,255,.3);
+
+}
+
+ /*form styling */
+.form-group input {
+    width: 100%;
+    /*height: 35px;*/
+    /*padding-left: 15px;*/
+    /*border: none;*/
+    /*border-radius: 5px;*/
+    /*margin-bottom: 20px;*/
+    /*background: rgba(255,255,255,.5);*/
+}
+.form-group label {
+    /*text-transform: uppercase;*/
+}
+input.submit {
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 1em;
+
+    color: rgba(255,255,255, 1);
+    padding: 8px 0px;
+    width: 80%;
+    height: 35px;
+    border: none;
+    border-radius: 20px;
+    margin-top: 23px;
+    background-color: rgba(16,89,255, 1);
+}
+
+/*Form positioning and animation */
+
+form#registerform {
+    left:500px;
+    top:-230px;
+    position:relative;
+}
+
+.forgot-panel {
+    bottom: 130px;
+    /*margin-top:-300px;*/
+    color:gray;
+}
+
+form, .forgot-panel {
+    position: relative;
+    transition: all .1s ease;
+}
+#loginBtn, #registerBtn {
+    transition: all .1s ease;
+
+}

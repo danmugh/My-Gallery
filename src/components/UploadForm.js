@@ -4,7 +4,6 @@ import { MdAddAPhoto } from 'react-icons/md';
 import { motion } from 'framer-motion';
 
 
-
 const UploadForm = () => {
     const [file, setFile] = useState(null)
     const [error, setError] = useState(null)
@@ -34,8 +33,6 @@ const UploadForm = () => {
                     onChange={changeHandler}
                 />
                 <MdAddAPhoto className="icon" />
-
-
 
             </motion.label>
             <div className="output" >
