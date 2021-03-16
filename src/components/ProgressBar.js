@@ -1,5 +1,5 @@
-
 import React, { useEffect } from 'react';
+import './ProgressBar.css';
 import useStorage from '../hooks/useStorage';
 import { motion } from 'framer-motion';
 

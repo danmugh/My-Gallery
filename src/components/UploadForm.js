@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import './UploadForm.css';
 import ProgressBar from "./ProgressBar";
 import { MdAddAPhoto } from 'react-icons/md';
 import { motion } from 'framer-motion';
@@ -23,10 +24,11 @@ const UploadForm = () => {
     }
 
     return (
-        <form>
+        <form className="uploadForm">
             <motion.label
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
+
             >
                 <input
                     type="file"

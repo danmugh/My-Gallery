@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import './Modal.css';
 
 const Modal = ({ setSelectedImg, selectedImg }) => {
 

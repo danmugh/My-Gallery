@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cardo&display=swap');
+
+.title {
+    color: #4e4e4e;
+}
+
+.title h2 {
+    font-size: 1.3rem;
+    text-align: center;
+    font-family: 'Abril Fatface', cursive;
+}
+
+.title p {
+    text-align: center;
+    font-family: 'Cardo', serif;
+}
+
+.title h2{
+    margin-top: 60px;
+    font-size: 2.6rem;
+
+}

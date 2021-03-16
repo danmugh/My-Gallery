@@ -1,0 +1,43 @@
+.uploadForm form{
+    margin: 30px auto 10px;
+    text-align: center;
+}
+.uploadForm label input{
+    height: 0;
+    width: 0;
+    opacity: 0;
+}
+.uploadForm label{
+    display: block;
+    width: 60px;
+    height: 60px;
+    border: 2px solid #8E44AD;
+    border-radius: 50%;
+    margin: 10px auto;
+    line-height: 30px;
+    color: #8E44AD;
+    font-weight: bold;
+    font-size: 45px;
+    cursor: pointer;
+
+}
+
+.uploadForm label:hover{
+    border: 2px solid #5B2C6F;
+    color: #5B2C6F;
+}
+
+.icon {
+    align-items: center;
+    padding: 7px;
+    /*padding-left: 10px;*/
+    /*padding-right: 10px;*/
+}
+
+.output{
+    height: 60px;
+    font-size: 0.8rem;
+}
+.error{
+    color: var(--error);
+}
