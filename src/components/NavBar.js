@@ -10,9 +10,9 @@ const NavBar = (props) => {
     const open = Boolean(anchorEl);
 
     const handleClose = () => {
-        // localStorage.removeItem('user');
-        // props.setUserState();
-        // setAnchorEl(null);
+        localStorage.removeItem('user');
+        props.setUserState();
+        setAnchorEl(null);
     }
 
     const handleMenu = (event) => {

@@ -39,7 +39,7 @@ const UploadForm = () => {
             </motion.label>
             <div className="output" >
                 { error && <div className="error">{ error }</div> }
-                { file && <div>{ file.name }</div> }
+                { file && <div className="fileName">{ file.name }</div> }
                 { file && <ProgressBar file={file} setFile={setFile} /> }
             </div>
 

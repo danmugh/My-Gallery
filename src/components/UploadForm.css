@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Cardo&display=swap');
+
 .uploadForm form{
     margin: 30px auto 10px;
     text-align: center;
@@ -11,11 +13,11 @@
     display: block;
     width: 60px;
     height: 60px;
-    border: 2px solid #8E44AD;
+    border: 2px solid #fe7e6c;
     border-radius: 50%;
     margin: 10px auto;
     line-height: 30px;
-    color: #8E44AD;
+    color: #fe7e6c;
     font-weight: bold;
     font-size: 45px;
     cursor: pointer;
@@ -23,13 +25,13 @@
 }
 
 .uploadForm label:hover{
-    border: 2px solid #5B2C6F;
-    color: #5B2C6F;
+    border: 2px solid #FE6B8B;
+    color: #FE6B8B;
 }
 
 .icon {
     align-items: center;
-    padding: 7px;
+    padding: 7px !important;
     /*padding-left: 10px;*/
     /*padding-right: 10px;*/
 }
@@ -39,5 +41,17 @@
     font-size: 0.8rem;
 }
 .error{
-    color: var(--error);
+    font-size: 14px;
+    text-align: center;
+    font-family: 'Cardo', serif;
+    color: red;
+}
+
+.fileName {
+    font-size: 14px;
+    text-align: center;
+    font-family: 'Cardo', serif;
+    color: #fe7082;
+
+
 }

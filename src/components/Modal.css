@@ -9,6 +9,7 @@
 }
 .backdrop img{
     display: block;
+    padding-top: 60px;
     max-width: 60%;
     max-height: 80%;
     margin: 60px auto;
