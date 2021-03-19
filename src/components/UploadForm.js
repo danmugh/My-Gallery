@@ -26,9 +26,12 @@ const UploadForm = () => {
     return (
         <form className="uploadForm">
             <motion.label
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-
+                whileHover={{ scale: 1.1, rotate: 90 }}
+                whileTap={{
+                    scale: 0.8,
+                    rotate: -90,
+                }}
+                className="labelContainer"
             >
                 <input
                     type="file"

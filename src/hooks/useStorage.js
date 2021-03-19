@@ -20,8 +20,9 @@ const useStorage = (file) => {
         }, async () => {
             const url = await storageRef.getDownloadURL();
             const createdAt = timestamp();
+            const userId = localStorage.getItem('userId');
 
-            collectionRef.add({ url, createdAt, name: file.name })
+            collectionRef.add({ url, createdAt, name: file.name, userId: userId })
             setUrl(url);
 
         });

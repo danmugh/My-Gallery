@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {Container, CssBaseline, Avatar, Typography, FormControlLabel, Button,
-    Checkbox, Grid, Link, makeStyles, createMuiTheme, ThemeProvider, Card, CardContent} from '@material-ui/core';
+    Checkbox, Grid, Link, makeStyles, createMuiTheme, withStyles, ThemeProvider, Card, CardContent} from '@material-ui/core';
 import {LockRounded, LockSharp} from '@material-ui/icons';
 import {ValidatorForm, TextValidator} from 'react-material-ui-form-validator';
 import fire from '../firebase/config';
@@ -41,7 +41,9 @@ const Login = (props) => {
                     userId: user.uid,
                     email: user.email
                 }
+                const userId = user.uid
                 localStorage.setItem('user', JSON.stringify(data));
+                localStorage.setItem('userId', userId);
                 const storage = localStorage.getItem('user');
                 const loggedInUser = storage !== null ? JSON.parse(storage) : null;
                 props.loggedIn(loggedInUser);
@@ -75,9 +77,9 @@ const Login = (props) => {
                                         }
                                     }}
                                     className={classes.form}>
-                                    <TextValidator
+                                    <CssTextValidator
                                         variant="standard"
-                                        margin="normal"
+                                        className={classes.margin}
 
                                         fullWidth
                                         label="Email"
@@ -91,7 +93,8 @@ const Login = (props) => {
                                             className: classes.label,
                                         }}
                                     />
-                                    <TextValidator
+                                    <CssTextValidator
+                                        className={classes.margin}
                                         variant="standard"
                                         fullWidth
                                         label="Password"
@@ -106,10 +109,10 @@ const Login = (props) => {
                                             className: classes.label,
                                         }}
                                     />
-                                    <br/>
                                     <FormControlLabel
                                         control={
                                             <motion.div
+                                                className={classes.margin}
                                                 whileHover={{ scale: 1.2, rotate: 90 }}
                                                 whileTap={{
                                                     scale: 0.8,
@@ -133,6 +136,7 @@ const Login = (props) => {
                                     />
                                     {loading ? (
                                         <ScaleLoader
+                                            className={classes.margin}
                                             css={override}
                                             size={150}
                                             color={"#eb4034"}
@@ -150,7 +154,6 @@ const Login = (props) => {
                                     )}
                                     <Grid container>
                                         <Grid item>
-                                            <br/>
                                             <Link  onClick={props.toggle} className={classes.pointer} variant="body2">
                                                 {"Don't have an account? Sign Up"}
                                             </Link>
@@ -178,12 +181,40 @@ const theme = createMuiTheme({
     },
 });
 
+const CssTextValidator = withStyles({
+    root: {
+        '& label': {
+            color: 'black',
+            fontFamily: 'Montserrat',
+            fontSize: '15px',
+            fontWeight: 'bold',
+        },
+        // '& input': {
+        //     color: 'black',
+        // },
+
+        '& label.Mui-focused': {
+            color: 'red',
+        },
+        '& .MuiInput-underline::before': {
+            borderColor: 'black',
+            borderWidth: 2,
+        },
+        '& .MuiInput-underline::after': {
+            borderColor: '#f44336',
+            borderWidth: 2,
+        },
+    },
+})(TextValidator);
 
 const useStyles = makeStyles((theme) => ({
     container: {
         // display: 'flex',
         // justifyContent: 'center',
         // alignItems: 'center',
+    },
+    margin: {
+        margin: theme.spacing(1),
     },
     paper: {
         marginTop: theme.spacing(10),
@@ -213,19 +244,27 @@ const useStyles = makeStyles((theme) => ({
         fontFamily: 'Montserrat',
         fontSize: '15px',
         fontWeight: 'bold',
-        color: '#0e0e0e',
+        color: '#4f4949',
+
     },
+    // label:after : {
+    //     fontFamily: 'Montserrat',
+    //     fontSize: '15px',
+    //     fontWeight: 'bold',
+    //     color: '#f44336',
+    // },
     submit: {
         background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
-        margin: theme.spacing(3, 0, 2),
+        margin: theme.spacing(2, 1, 3),
         color: '#fff',
         fontFamily: 'Poiret One',
         fontSize: '15px',
-        fontWeight: '800'
+        fontWeight: '800',
+
     },
     card: {
         marginTop: '60px',
-        paddingLeft: '20px',
+        paddingLeft: '10px',
         paddingRight: '20px',
         paddingBottom: '20px',
         background: 'linear-gradient(196deg, rgba(244,67,54,1) 0%, rgba(254,107,139,1) 18%, rgba(255,255,255,0) 70%)',
@@ -233,8 +272,8 @@ const useStyles = makeStyles((theme) => ({
         // boxShadow: '0px 2px 7px rgba(0,0,0,0.3)',
 
         ['@media (max-width:480px)']: {
-            paddingLeft: '10px',
-            paddingRight: '10px',
+            paddingLeft: '0px',
+            paddingRight: '15px',
         }
     },
     pointer: {
@@ -243,7 +282,8 @@ const useStyles = makeStyles((theme) => ({
         color: '#f44336',
         fontFamily: 'Montserrat',
         fontSize: '15px',
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        margin: theme.spacing(1),
 
     },
 

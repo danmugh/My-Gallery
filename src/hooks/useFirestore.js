@@ -4,9 +4,15 @@ import { projectFirestore } from '../firebase/config';
 const useFirestore = (collection) => {
     const [docs, setDocs] = useState([]);
 
+
+
     useEffect(() => {
-        const unsub = projectFirestore.collection(collection)
-            .orderBy('createdAt', 'desc')
+        // const userId = localStorage.getItem('userId');
+
+        const cyrrus = projectFirestore.collection(collection)
+
+            .orderBy('userId', 'desc')
+            // .equalTo('userId', 'userId')
             .onSnapshot(snap => {
                 let documents = [];
                 snap.forEach(doc => {
@@ -15,7 +21,7 @@ const useFirestore = (collection) => {
                 setDocs(documents);
             });
 
-        return () => unsub();
+        return () => cyrrus();
         // this is a cleanup function that react will run when
         // a component using the hook unmounts
     }, [collection]);
