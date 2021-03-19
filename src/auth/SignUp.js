@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {
     Container, CssBaseline, Avatar, Typography,
-    Button, Grid, Link, makeStyles, Card, CardContent, createMuiTheme, ThemeProvider
+    Button, Grid, Link, makeStyles, Card, CardContent, createMuiTheme, ThemeProvider, withStyles
 } from '@material-ui/core';
 import {LockRounded} from '@material-ui/icons';
 import {ValidatorForm, TextValidator} from 'react-material-ui-form-validator';
@@ -79,9 +79,9 @@ const SignUp = (props) => {
                                 <ValidatorForm
                                     onSubmit={handleSignUp}
                                     className={classes.form}>
-                                    <TextValidator
+                                    <CssTextValidator
                                         variant="standard"
-                                        margin="normal"
+                                        className={classes.margin}
                                         fullWidth
                                         label="Email"
                                         onChange={handleEmail}
@@ -94,9 +94,9 @@ const SignUp = (props) => {
                                             className: classes.label,
                                         }}
                                     />
-                                    <br/>
-                                    <TextValidator
+                                    <CssTextValidator
                                         variant="standard"
+                                        className={classes.margin}
                                         fullWidth
                                         label="Password"
                                         onChange={handlePassword}
@@ -110,9 +110,9 @@ const SignUp = (props) => {
                                             className: classes.label,
                                         }}
                                     />
-                                    <br/>
-                                    <TextValidator
+                                    <CssTextValidator
                                         variant="standard"
+                                        className={classes.margin}
                                         label="Confirm password"
                                         fullWidth
                                         onChange={handleConfirmPassword}
@@ -123,7 +123,6 @@ const SignUp = (props) => {
                                         value={confirmPassword}
                                         autoComplete="off"
                                     />
-                                    <br/>
                                     <Button
                                         type="submit"
                                         fullWidth
@@ -134,7 +133,6 @@ const SignUp = (props) => {
                                     </Button>
                                     <Grid container>
                                         <Grid item>
-                                            <br/>
                                             <Link underline='none' onClick={props.toggle} className={classes.pointer} variant="body2">
                                                 {"Already have an account? Sign In"}
                                             </Link>
@@ -162,12 +160,41 @@ const theme = createMuiTheme({
     },
 });
 
+const CssTextValidator = withStyles({
+    root: {
+        '& label': {
+            color: 'black',
+            fontFamily: 'Montserrat',
+            fontSize: '15px',
+            fontWeight: 'bold',
+        },
+        // '& input': {
+        //     color: 'black',
+        // },
+
+        '& label.Mui-focused': {
+            color: 'red',
+        },
+        '& .MuiInput-underline::before': {
+            borderColor: 'black',
+            borderWidth: 2,
+        },
+        '& .MuiInput-underline::after': {
+            borderColor: '#f44336',
+            borderWidth: 2,
+        },
+    },
+})(TextValidator);
+
 const useStyles = makeStyles((theme) => ({
     paper: {
         marginTop: theme.spacing(10),
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
+    },
+    margin: {
+        margin: theme.spacing(1),
     },
     avatar: {
         margin: theme.spacing(1),
@@ -186,11 +213,12 @@ const useStyles = makeStyles((theme) => ({
         fontFamily: 'Montserrat',
         fontSize: '15px',
         fontWeight: 'bold',
-        color: '#0e0e0e',
+        color: '#4f4949',
+
     },
     submit: {
         background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
-        margin: theme.spacing(3, 0, 2),
+        margin: theme.spacing(3, 1, 3),
         color: '#fff',
         fontFamily: 'Poiret One',
         fontSize: '15px',
@@ -198,16 +226,16 @@ const useStyles = makeStyles((theme) => ({
     },
     card: {
         marginTop: '60px',
-        paddingLeft: '20px',
-        paddingRight: '20px',
+        paddingLeft: '10px',
+        paddingRight: '22px',
         paddingBottom: '20px',
         background: 'linear-gradient(201deg, rgba(244,67,54,1) 0%, rgba(254,107,139,1) 18%, rgba(255,255,255,0) 67%)',
         boxShadow: '-1px 5px 18px 0px rgba(0,0,0,0.75)',
         // boxShadow: '0px 2px 7px rgba(0,0,0,0.3)',
 
         ['@media (max-width:480px)']: {
-            paddingLeft: '10px',
-            paddingRight: '10px',
+            paddingLeft: '0px',
+            paddingRight: '15px',
         }
     },
     pointer: {
@@ -216,7 +244,8 @@ const useStyles = makeStyles((theme) => ({
         color: '#f44336',
         fontFamily: 'Montserrat',
         fontSize: '15px',
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        margin: theme.spacing(1),
     }
 }))
 export default SignUp;

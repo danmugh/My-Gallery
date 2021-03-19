@@ -80,7 +80,6 @@ const Login = (props) => {
                                     <CssTextValidator
                                         variant="standard"
                                         className={classes.margin}
-
                                         fullWidth
                                         label="Email"
                                         onChange={handleEmail}
@@ -247,12 +246,6 @@ const useStyles = makeStyles((theme) => ({
         color: '#4f4949',
 
     },
-    // label:after : {
-    //     fontFamily: 'Montserrat',
-    //     fontSize: '15px',
-    //     fontWeight: 'bold',
-    //     color: '#f44336',
-    // },
     submit: {
         background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
         margin: theme.spacing(2, 1, 3),
@@ -265,7 +258,7 @@ const useStyles = makeStyles((theme) => ({
     card: {
         marginTop: '60px',
         paddingLeft: '10px',
-        paddingRight: '20px',
+        paddingRight: '22px',
         paddingBottom: '20px',
         background: 'linear-gradient(196deg, rgba(244,67,54,1) 0%, rgba(254,107,139,1) 18%, rgba(255,255,255,0) 70%)',
         boxShadow: '-1px 5px 18px 0px rgba(0,0,0,0.75)',
