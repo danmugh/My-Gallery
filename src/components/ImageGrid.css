@@ -3,6 +3,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 40px;
+    padding-bottom: 60px;
 }
 
 
@@ -34,6 +35,26 @@
     padding: 10px;
     font-family: 'Cardo', serif;
 }
+
+.ContainerCopyright {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Copyright {
+    /*position:absolute;*/
+    /*bottom:0;*/
+    /*left: auto;*/
+    position: absolute;
+    bottom: 0;
+
+    padding: 10px;
+    font-family: 'Cardo', serif;
+    color: #fe6b8b;
+}
+
 
 @media screen and (max-width: 780px) {
     .img-grid{

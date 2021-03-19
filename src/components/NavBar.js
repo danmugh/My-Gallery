@@ -25,7 +25,7 @@ const NavBar = (props) => {
             <AppBar position="fixed" className={classes.menuBackground}>
                 <Toolbar>
                     <Typography variant="h6" className={classes.title}>
-                        Cyrrus, my Gallery
+                        Cyrrugram, my Gallery
                     </Typography>
                     {auth && (
                         <div>
